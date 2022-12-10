@@ -1,6 +1,7 @@
 { config, pkgs, lib, options, ... }:
 {
   imports = [
+    ./server_base.nix
   ];
 
   nixpkgs.config.allowBroken = true;
@@ -9,27 +10,6 @@
   ];
 
   environment.sessionVariables = { GTK_THEME = "Adwaita:dark"; };
-
-  nix = {
-    package = pkgs.nixUnstable;
-    nixPath = [
-      "nixpkgs=${pkgs.path}"
-      "nixos-config=/etc/nixos/configuration.nix"
-    ];
-    settings = {
-      auto-optimise-store = true;
-      substituters = [
-        "https://nix-serve.hq.c3d2.de"
-      ];
-      trusted-public-keys = [
-        "nix-serve.hq.c3d2.de:KZRGGnwOYzys6pxgM8jlur36RmkJQ/y8y62e52fj1ps="
-      ];
-    };
-    extraOptions = ''
-      experimental-features = nix-command flakes
-      allow-import-from-derivation = true
-    '';
-  };
 
   services = {
     accounts-daemon.enable = true;
@@ -59,9 +39,6 @@
   ];
 
   environment.systemPackages = with pkgs; [
-    git # versioning tool
-    vim # vim editor
-    htop # resource monitor
     acpi # battery stuff
     home-manager # managing homespace and user software
     alsa-utils # audio controll
@@ -113,9 +90,8 @@ gpgconf --launch gpg-agent
     gnupg.agent = {
       enable = true;
       enableSSHSupport = true;
-      #pinentryFlavor = "curses";
     };
-    # vim.defaultEditor = true;
+    vim.defaultEditor = true;
     ssh = {
       startAgent = false;
     };

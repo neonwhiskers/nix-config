@@ -1,7 +1,8 @@
-{ config, pkgs, ... }: 
+{ config, pkgs, ... }:
 let
   domain = "nextcloud.digitalsocial.team";
-in {
+in
+{
   sops.secrets.nextcloud_db_pass.owner = "nextcloud";
   sops.secrets.nextcloud_admin_pass.owner = "nextcloud";
 

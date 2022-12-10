@@ -28,6 +28,7 @@
           ./modules/nextcloud.nix
           ./modules/sops.nix
           ./modules/nginx.nix
+          ./modules/server_base.nix
           microvm.nixosModules.host
           sops.nixosModules.sops
           /*{

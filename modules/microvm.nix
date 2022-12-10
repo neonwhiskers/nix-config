@@ -1,7 +1,9 @@
-{pkgs, config, lib, ...}: let
+{ pkgs, config, lib, ... }:
+let
   microvm = {
     watch-me-senpai.flakeref = "github:dump-dvb/nix-config";
   };
-in {
+in
+{
   microvm.autoStart = builtins.attrNames microvms;
 }

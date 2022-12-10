@@ -1,11 +1,11 @@
 { pkgs, modulesPath, lib, ... }: {
- 
-networking.interfaces.enp2s0.useDHCP = true;
-networking.interfaces.wlo1.useDHCP = true;
-networking.networkmanager.enable = true;
-# networking.useDHCP = true;
 
- #  writing the certificate to the system
+  networking.interfaces.enp2s0.useDHCP = true;
+  networking.interfaces.wlo1.useDHCP = true;
+  networking.networkmanager.enable = true;
+  # networking.useDHCP = true;
+
+  #  writing the certificate to the system
   security.pki.certificates = [
     ''  
       T-TeleSec GlobalRoot Class 2

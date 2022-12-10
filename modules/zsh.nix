@@ -3,12 +3,12 @@
   programs.zsh.enableCompletion = true;
   programs.zsh.syntaxHighlighting.enable = true;
   programs.zsh.syntaxHighlighting.highlighters = [
-	  "main"
-	  "brackets"
-	  "pattern"
-	  "cursor"
-	  "root"
-	  "line"
+    "main"
+    "brackets"
+    "pattern"
+    "cursor"
+    "root"
+    "line"
   ];
 
 

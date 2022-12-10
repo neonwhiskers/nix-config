@@ -1,0 +1,11 @@
+keys:
+  - &revol-xut 91EBE87016391323642A6803B966009D57E69CC6
+  - &melody 778755C4893709525F6E62BCC2A819CA37DE8B61
+  - &leafon age18q907v2706qxmjewqan7xng2su3z6zyz9a2q444jew22apd46y7q8wjjku
+creation_rules:
+  - path_regex: secrets/leafeon\.yaml$
+    key_groups:
+    - pgp:
+      - *revol-xut
+      age:
+      - *leafon

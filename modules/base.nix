@@ -51,7 +51,7 @@
     enable = true;
   };
 
-   fonts.fonts = with pkgs; [
+  fonts.fonts = with pkgs; [
     dejavu_fonts
     font-awesome
     font-awesome_5
@@ -89,7 +89,7 @@
     font-awesome
     font-awesome_5
     unicode-emoji
-	
+
     # audio foo
     pulsemixer
 

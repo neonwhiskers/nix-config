@@ -6,26 +6,19 @@
 {
   imports =
     [
-      (modulesPath + "/installer/scan/not-detected.nix")
+      (modulesPath + "/profiles/qemu-guest.nix")
     ];
 
-  boot.initrd.availableKernelModules = [ "nvme" "xhci_pci" "usb_storage" "sd_mod" "sdhci_pci" ];
+  boot.initrd.availableKernelModules = [ "ata_piix" "uhci_hcd" "virtio_pci" "sr_mod" "virtio_blk" ];
   boot.initrd.kernelModules = [ ];
-  boot.kernelModules = [ "kvm-amd" ];
+  boot.kernelModules = [ ];
   boot.extraModulePackages = [ ];
 
   fileSystems."/" =
     {
-      device = "/dev/disk/by-uuid/bc66e05b-7276-4355-aabc-e23270f51c9a";
+      device = "/dev/disk/by-uuid/a4667796-da46-4536-a424-8967c39f14fb";
       fsType = "ext4";
     };
-
-  fileSystems."/boot" =
-    {
-      device = "/dev/disk/by-uuid/5B1D-5F20";
-      fsType = "vfat";
-    };
-
   swapDevices = [ ];
 
   # Enables DHCP on each ethernet and wireless interface. In case of scripted networking
@@ -33,9 +26,14 @@
   # still possible to use this option, but it's recommended to use it in conjunction
   # with explicit per-interface declarations with `networking.interfaces.<interface>.useDHCP`.
   networking.useDHCP = lib.mkDefault true;
-  # networking.interfaces.enp2s0.useDHCP = lib.mkDefault true;
-  # networking.interfaces.wlo1.useDHCP = lib.mkDefault true;
+  # networking.interfaces.br-211236bd4ffb.useDHCP = lib.mkDefault true;
+  # networking.interfaces.docker0.useDHCP = lib.mkDefault true;
+  # networking.interfaces.eth0.useDHCP = lib.mkDefault true;
+  # networking.interfaces.veth1e9938e.useDHCP = lib.mkDefault true;
+  # networking.interfaces.veth35d132a.useDHCP = lib.mkDefault true;
+  # networking.interfaces.veth5893588.useDHCP = lib.mkDefault true;
+  # networking.interfaces.veth7c68021.useDHCP = lib.mkDefault true;
+  # networking.interfaces.veth829e876.useDHCP = lib.mkDefault true;
 
-  nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
   hardware.cpu.amd.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
 }

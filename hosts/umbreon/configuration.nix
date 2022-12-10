@@ -6,9 +6,10 @@
 
 {
   imports =
-    [ # Include the results of the hardware scan.
-     ./network.nix
-     ./hardware-configuration.nix
+    [
+      # Include the results of the hardware scan.
+      ./network.nix
+      ./hardware-configuration.nix
     ];
 
   # Use the systemd-boot EFI boot loader.
@@ -38,7 +39,7 @@
   # services.xserver.enable = true;
 
 
-  
+
 
   # Configure keymap in X11
   # services.xserver.layout = "us";
@@ -60,12 +61,12 @@
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.defaultUserShell = pkgs.zsh;
   users.users.mel = {
-     isNormalUser = true;
-     shell = pkgs.zsh;
-     extraGroups = [ "wheel" ]; # Enable ‘sudo’ for the user.
-     packages = with pkgs; [
-     ];
-   };
+    isNormalUser = true;
+    shell = pkgs.zsh;
+    extraGroups = [ "wheel" ]; # Enable ‘sudo’ for the user.
+    packages = with pkgs; [
+    ];
+  };
 
   # List packages installed in system profile. To search, run:
   # $ nix search wget

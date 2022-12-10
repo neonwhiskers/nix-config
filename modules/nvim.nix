@@ -26,12 +26,12 @@ in
 
       configure = {
         customRC = ''
-	'';
+  '';
 
-	packages.myVimPackage.start = ((with pkgs; [
-	  tree-sitter
-	  rust-analyzer
-	]) ++ (with pkgs.vimPlugins; [
+        packages.myVimPackage.start = ((with pkgs; [
+          tree-sitter
+          rust-analyzer
+        ]) ++ (with pkgs.vimPlugins; [
           rust-vim
           vim-which-key
           vim-nix
@@ -59,7 +59,7 @@ in
           cmp-path
           cmp-buffer
           vim-vsnip
-	]));
+        ]));
       };
     };
   };

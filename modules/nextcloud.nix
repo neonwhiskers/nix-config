@@ -27,7 +27,7 @@ in
     config = {
       dbtype = "pgsql";
       dbname = "nextcloud";
-      dbhost = "/run/postgresql";
+      dbhost = "127.0.0.1";
       dbpassFile = "${config.sops.secrets.nextcloud_db_pass.path}";
       overwriteProtocol = "https";
       adminuser = "admin";
@@ -48,7 +48,7 @@ in
       TimeoutSec = lib.mkForce 3000;
     };
     postStart = lib.mkAfter ''
-      $PSQL -c "ALTER ROLE nextcloud WITH PASSWORD '$(cat ${config.sops.secrets.nextcloud_db_pass.path})';"
+      $PSQL -c "ALTER USER nextcloud WITH PASSWORD '$(cat ${config.sops.secrets.nextcloud_db_pass.path})';"
     '';
   };
 

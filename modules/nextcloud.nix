@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ config, pkgs, lib, ... }:
 let
   domain = "nextcloud.digitalsocial.team";
 in
@@ -39,4 +39,17 @@ in
   services.nginx.virtualHosts."nextcloud.digitalsocial.team".enableACME = true;
 
   networking.firewall.allowedTCPPorts = [ 80 443 ];
+
+  systemd.services.postgresql = {
+    unitConfig = {
+      TimeoutStartSec=3000;
+    };
+    serviceConfig = {
+      TimeoutSec = lib.mkForce 3000;
+    };
+    postStart = lib.mkAfter ''
+      $PSQL -c "ALTER ROLE nextcloud WITH PASSWORD '$(cat ${config.sops.secrets.nextcloud_db_pass.path})';"
+    '';
+  };
+
 }

@@ -73,11 +73,10 @@
     glibc
     firefox
     signal-desktop
-    networkmanagerapplet
-    wpa_supplicant_gui
     spotify-qt
     filezilla
     thunderbird
+    libreoffice
 
     slurp # screenshotting
     grim # screenshotting

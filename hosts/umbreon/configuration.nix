@@ -70,6 +70,7 @@
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
+    pkgs.yubikey-personalization
     vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
     wget
     git
@@ -108,4 +109,3 @@
   system.stateVersion = "22.11"; # Did you read the comment?
 
 }
-

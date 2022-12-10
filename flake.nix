@@ -16,6 +16,7 @@
 					./modules/zsh.nix
                                         ./modules/nvim.nix
                                         ./modules/docker.nix
+                                        ./modules/yubikey.nix
 				];
 			};
 		};

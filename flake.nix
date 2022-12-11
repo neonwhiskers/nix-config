@@ -29,6 +29,7 @@
           ./modules/sops.nix
           ./modules/nginx.nix
           ./modules/server_base.nix
+          ./modules/bookstack.nix
           microvm.nixosModules.host
           sops.nixosModules.sops
           /*{

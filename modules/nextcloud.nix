@@ -27,7 +27,7 @@ in
     config = {
       dbtype = "pgsql";
       dbname = "nextcloud";
-      dbhost = "127.0.0.1";
+      dbhost = "/run/postgresql";
       dbpassFile = "${config.sops.secrets.nextcloud_db_pass.path}";
       overwriteProtocol = "https";
       adminuser = "admin";

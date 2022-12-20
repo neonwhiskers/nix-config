@@ -32,12 +32,26 @@
           ./modules/bookstack.nix
           microvm.nixosModules.host
           sops.nixosModules.sops
-          /*{
+          {
+	    networking.nat = {
+	      enable = true;
+	      internalInterfaces = ["ve-+"];
+	      externalInterface = "ens3";
+	      # Lazy IPv6 connectivity for the container
+	      enableIPv6 = true;
+	    };
+	    containers.watch-me-senpai = {
+	    	autoStart = true;
+		  privateNetwork = true;           
+		  hostAddress = "192.168.100.10";
+		  localAddress = "192.168.100.11";
+		  config = { config, pkgs, ... 
+	    };
             microvm.vms.watch-me-senpai = {
-                  flake = self;
-                  updateFlake = "github:dump-dvb/nix-config/release";
-                };
-          }*/
+            	flake = dump-dvb;
+                updateFlake = "github:dump-dvb/nix-config";
+            };
+          }
         ];
       };
     };

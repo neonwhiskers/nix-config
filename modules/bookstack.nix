@@ -11,7 +11,9 @@
 
       nginx.enableACME = true;
       nginx.forceSSL = true;
+
       # Bookstack requires mariadb or mysql :<
+
       database = {
         user = "bookstack";
         host = "localhost";
@@ -25,6 +27,14 @@
     mysql = {
       package = pkgs.mariadb;
       enable = true;
+      ensureUsers = [
+	{
+	  name = "bookstack";
+          ensurePermissions = {
+            "database.bookstack" = "ALL PRIVILEGES";
+          };
+	}
+      ];
     };
   };
   sops.secrets.bookstack_appkey.owner = config.services.bookstack.user;

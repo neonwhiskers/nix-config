@@ -1,8 +1,8 @@
 { ... }: {
   imports = [
     ./hardware-configuration.nix
-    ./networking.nix # generated at runtime by nixos-infect
-
+    ./network.nix # generated at runtime by nixos-infect
+    ./microvm-network.nix
   ];
 
   sops.defaultSopsFile = ../../secrets/leafeon.yaml;
@@ -12,5 +12,4 @@
   boot.loader.grub.device = "/dev/vda";
   zramSwap.enable = true;
   networking.hostName = "leafeon";
-  networking.domain = "";
 }

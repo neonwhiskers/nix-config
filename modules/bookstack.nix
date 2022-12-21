@@ -21,19 +21,18 @@
         passwordFile = "${config.sops.secrets.bookstack_db_pass.path}";
       };
       appKeyFile = "${config.sops.secrets.bookstack_appkey.path}";
-      config = {
-      };
+      config = { };
     };
     mysql = {
       package = pkgs.mariadb;
       enable = true;
       ensureUsers = [
-	{
-	  name = "bookstack";
+        {
+          name = "bookstack";
           ensurePermissions = {
             "database.bookstack" = "ALL PRIVILEGES";
           };
-	}
+        }
       ];
     };
   };

@@ -1,4 +1,4 @@
-{pkgs, config, lib, ...}: {
+{ pkgs, config, lib, ... }: {
   networking = {
     useDHCP = true;
     interfaces."eth0".useDHCP = true;
@@ -18,7 +18,7 @@
       networkConfig = {
         IPv6AcceptRA = "yes";
         Address = "202.61.250.106/22";
-	Gateway = "202.61.248.1";
+        Gateway = "202.61.248.1";
       };
     };
   };

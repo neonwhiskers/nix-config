@@ -2,7 +2,6 @@
   imports = [
     ./hardware-configuration.nix
     ./network.nix # generated at runtime by nixos-infect
-    ./microvm-network.nix
   ];
 
   sops.defaultSopsFile = ../../secrets/leafeon.yaml;

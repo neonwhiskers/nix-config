@@ -47,7 +47,7 @@
               localAddress = "192.168.100.11";
               config = { config, pkgs, ... }: {
                 imports = [
-                  dump-dvb."x86_64-linux".watch-me-senpai
+                  dump-dvb.nixosModules."x86_64-linux".watch-me-senpai
                   ./modules/watch-me-senpai.nix
                 ];
               };

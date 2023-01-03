@@ -4,22 +4,17 @@
     sway = {
       enable = true;
       extraPackages = with pkgs; [
-        swaylock-fancy
+        swaylock-fancy 
         swayidle
         wl-clipboard
         mako
         alacritty
         wofi
         wofi-emoji
-        #grim
-        #slurp
         gnome.adwaita-icon-theme
         i3status-rust
-        #dunst
-        #wezterm
         swayr
         dmenu-wayland
-        #waybar
       ];
     };
   };
@@ -28,6 +23,7 @@
   services.xserver.enable = true;
   services.xserver.displayManager.gdm.enable = true;
   services.xserver.displayManager.gdm.wayland = true;
+
 
   services.xserver.displayManager.defaultSession = "sway";
   /*input type:keyboard {

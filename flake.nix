@@ -5,8 +5,9 @@
     microvm.url = github:astro/microvm.nix;
     dump-dvb.url = github:dump-dvb/nix-config;
     sops.url = github:mic92/sops-nix;
+    funkwhale.url = github:mmai/funkwhale-flake;
   };
-  outputs = { self, nixpkgs, microvm, dump-dvb, sops, ... }: {
+  outputs = { self, nixpkgs, microvm, dump-dvb, sops, funkwhale, ... }: {
     nixosConfigurations = {
       umbreon = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
@@ -26,16 +27,12 @@
         modules = [
           ./hosts/leafeon/configuration.nix
           ./modules/nextcloud.nix
+          ./modules/funkwhale.nix
           ./modules/sops.nix
           ./modules/nginx.nix
           microvm.nixosModules.host
           sops.nixosModules.sops
-          /*{
-            microvm.vms.watch-me-senpai = {
-                  flake = self;
-                  updateFlake = "github:dump-dvb/nix-config/release";
-                };
-          }*/
+          funkwhale.nixosModule
         ];
       };
     };

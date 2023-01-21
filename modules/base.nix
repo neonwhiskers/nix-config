@@ -7,6 +7,9 @@
   nixpkgs.config.allowBroken = true;
   nixpkgs.config.allowUnfreePredicate = pkg: builtins.elem (lib.getName pkg) [
     "vscode"
+    "steam-original"
+    "steam"
+    "xmind"
   ];
 
   environment.sessionVariables = { GTK_THEME = "Adwaita:dark"; };
@@ -54,6 +57,8 @@
     filezilla
     thunderbird
     libreoffice
+    steam
+    xmind
 
     slurp # screenshotting
     grim # screenshotting

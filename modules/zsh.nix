@@ -6,7 +6,6 @@
     "main"
     "brackets"
     "pattern"
-    "cursor"
     "root"
     "line"
   ];

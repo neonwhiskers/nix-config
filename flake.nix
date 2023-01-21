@@ -1,12 +1,11 @@
 {
-  description = "mellos based nix configs";
+  description = "melos based nix configs";
   inputs = {
-    nixpkgs.url = github:nixos/nixpkgs/nixos-unstable;
+    nixpkgs.url = github:nixos/nixpkgs/nixos-22.11;
     sops.url = github:mic92/sops-nix;
-    dump-dvb-nix-config.url = github:dump-dvb/nix-config;
-    dump-dvb.url = github:dump-dvb/dump-dvb.nix;
+    funkwhale.url = github:revol-xut/funkwhale-flake;
   };
-  outputs = { self, nixpkgs, dump-dvb-nix-config, dump-dvb, sops, ... }: {
+  outputs = { self, nixpkgs, sops, funkwhale, ... }: {
     nixosConfigurations = {
       umbreon = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
@@ -23,15 +22,19 @@
       };
       leafeon = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
-	specialArgs = { inherit dump-dvb; };
         modules = [
           ./hosts/leafeon/configuration.nix
           ./modules/nextcloud.nix
+          ./modules/funkwhale.nix
           ./modules/sops.nix
           ./modules/nginx.nix
           ./modules/server_base.nix
           ./modules/bookstack.nix
           sops.nixosModules.sops
+          funkwhale.nixosModules.default
+          {
+            nixpkgs.overlays = [ funkwhale.overlays.default ];
+          }
         ];
       };
     };

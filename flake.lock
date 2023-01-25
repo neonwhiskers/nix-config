@@ -1,34 +1,16 @@
 {
   "nodes": {
-    "funkwhale": {
-      "inputs": {
-        "nixpkgs": "nixpkgs"
-      },
-      "locked": {
-        "lastModified": 1674331569,
-        "narHash": "sha256-W2gCalG2RSPQsUYAC5d5iyayqq813j2qhGuKs7ENQwM=",
-        "owner": "revol-xut",
-        "repo": "funkwhale-flake",
-        "rev": "27ec7cc2fc7517918985beeca0ae9961fd9f69d8",
-        "type": "github"
-      },
-      "original": {
-        "owner": "revol-xut",
-        "repo": "funkwhale-flake",
-        "type": "github"
-      }
-    },
     "nixpkgs": {
       "locked": {
         "lastModified": 1674242456,
         "narHash": "sha256-yBy7rCH7EiBe9+CHZm9YB5ii5GRa+MOxeW0oDEBO8SE=",
-        "owner": "NixOS",
+        "owner": "nixos",
         "repo": "nixpkgs",
         "rev": "cdead16a444a3e5de7bc9b0af8e198b11bb01804",
         "type": "github"
       },
       "original": {
-        "owner": "NixOS",
+        "owner": "nixos",
         "ref": "nixos-22.11",
         "repo": "nixpkgs",
         "type": "github"
@@ -52,22 +34,6 @@
     },
     "nixpkgs_2": {
       "locked": {
-        "lastModified": 1674242456,
-        "narHash": "sha256-yBy7rCH7EiBe9+CHZm9YB5ii5GRa+MOxeW0oDEBO8SE=",
-        "owner": "nixos",
-        "repo": "nixpkgs",
-        "rev": "cdead16a444a3e5de7bc9b0af8e198b11bb01804",
-        "type": "github"
-      },
-      "original": {
-        "owner": "nixos",
-        "ref": "nixos-22.11",
-        "repo": "nixpkgs",
-        "type": "github"
-      }
-    },
-    "nixpkgs_3": {
-      "locked": {
         "lastModified": 1673606088,
         "narHash": "sha256-wdYD41UwNwPhTdMaG0AIe7fE1bAdyHe6bB4HLUqUvck=",
         "owner": "NixOS",
@@ -84,14 +50,13 @@
     },
     "root": {
       "inputs": {
-        "funkwhale": "funkwhale",
-        "nixpkgs": "nixpkgs_2",
+        "nixpkgs": "nixpkgs",
         "sops": "sops"
       }
     },
     "sops": {
       "inputs": {
-        "nixpkgs": "nixpkgs_3",
+        "nixpkgs": "nixpkgs_2",
         "nixpkgs-stable": "nixpkgs-stable"
       },
       "locked": {

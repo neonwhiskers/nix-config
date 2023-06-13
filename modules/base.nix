@@ -9,6 +9,7 @@
     "steam-original"
     "steam"
     "xmind"
+    "discord"
   ];
 
   environment.sessionVariables = { GTK_THEME = "Adwaita:dark"; };
@@ -81,7 +82,13 @@
     thunderbird
     libreoffice
     steam
+    discord
+    lutris
     xmind
+
+    wine
+    wine-wayland
+    winePackages.full
 
     slurp # screenshotting
     grim # screenshotting
@@ -105,6 +112,9 @@
     vscode
     gcc
     vimPlugins.vim-nix
+
+    zathura
+    okular
   ];
 
 

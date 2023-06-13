@@ -3,10 +3,9 @@
   inputs = {
     nixpkgs.url = github:nixos/nixpkgs/nixos-unstable;
     microvm.url = github:astro/microvm.nix;
-    dump-dvb.url = github:dump-dvb/nix-config;
     sops.url = github:mic92/sops-nix;
   };
-  outputs = { self, nixpkgs, microvm, dump-dvb, sops, ... }: {
+  outputs = { self, nixpkgs, microvm, sops, ... }: {
     nixosConfigurations = {
       umbreon = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";

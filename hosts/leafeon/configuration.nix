@@ -2,8 +2,12 @@
   imports = [
     ./hardware-configuration.nix
     ./networking.nix # generated at runtime by nixos-infect
-
   ];
+
+  boot.initrd.kernelModules = [ "amdgpu" ];
+  hardware.opengl.driSupport = true;
+  # For 32 bit applications
+  hardware.opengl.driSupport32Bit = true;
 
   sops.defaultSopsFile = ../../secrets/leafeon.yaml;
   system.stateVersion = "22.05";

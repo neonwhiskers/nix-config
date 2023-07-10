@@ -115,6 +115,8 @@
 
     zathura
     okular
+    dolphine
+    inkscape
   ];
 
 

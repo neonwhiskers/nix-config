@@ -18,6 +18,7 @@
           ./modules/zsh.nix
           ./modules/nvim.nix
           ./modules/docker.nix
+          ./modules/vbox.nix
         ];
       };
       leafeon = nixpkgs.lib.nixosSystem {

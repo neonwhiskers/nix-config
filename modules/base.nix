@@ -8,7 +8,6 @@
     "vscode"
     "steam-original"
     "steam"
-    "xmind"
     "discord"
   ];
 
@@ -84,7 +83,6 @@
     steam
     discord
     lutris
-    xmind
 
     wine
     wine-wayland
@@ -103,16 +101,12 @@
 
     # audio foo
     pulsemixer
-
-    # bluetooth
-    # blueman
     blueberry
 
     # development
     vscode
     gcc
     vimPlugins.vim-nix
-
     zathura
     okular
   ];

@@ -115,8 +115,9 @@
 
     zathura
     okular
-    dolphine
+    dolphin
     inkscape
+    gnome.nautilus
   ];
 
 

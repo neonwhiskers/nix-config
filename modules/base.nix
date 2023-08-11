@@ -83,6 +83,7 @@
     steam
     discord
     lutris
+    sops # secrets
 
     wine
     wine-wayland

@@ -9,7 +9,7 @@
     "vscode"
     "steam-original"
     "steam"
-    "xmind"
+    "discord"
   ];
 
   environment.sessionVariables = { GTK_THEME = "Adwaita:dark"; };
@@ -58,7 +58,12 @@
     thunderbird
     libreoffice
     steam
-    xmind
+    discord
+    lutris
+
+    wine
+    wine-wayland
+    winePackages.full
 
     slurp # screenshotting
     grim # screenshotting
@@ -73,15 +78,14 @@
 
     # audio foo
     pulsemixer
-
-    # bluetooth
-    # blueman
     blueberry
 
     # development
     vscode
     gcc
     vimPlugins.vim-nix
+    zathura
+    okular
   ];
 
 

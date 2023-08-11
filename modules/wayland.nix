@@ -15,6 +15,7 @@
         i3status-rust
         swayr
         dmenu-wayland
+        xdg-desktop-portal-wlr 
       ];
     };
   };
@@ -23,8 +24,10 @@
   services.xserver.enable = true;
   services.xserver.displayManager.gdm.enable = true;
   services.xserver.displayManager.gdm.wayland = true;
+  
 
-
+  environment.systemPackages = [ pkgs.xdg-desktop-portal-wlr ];
+  xdg.portal.wlr.enable = true;
   services.xserver.displayManager.defaultSession = "sway";
   /*input type:keyboard {
     xkb_layout "us,de,ru"

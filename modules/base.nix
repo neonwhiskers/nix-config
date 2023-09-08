@@ -81,7 +81,7 @@
     # development
     vscode
     gcc
-    vimPlugins.vim-nix
+    #vimPlugins.vim-nix
   ];
 
 
@@ -96,7 +96,6 @@ gpgconf --launch gpg-agent
       enable = true;
       enableSSHSupport = true;
     };
-    vim.defaultEditor = true;
     ssh = {
       startAgent = false;
     };

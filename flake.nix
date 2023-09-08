@@ -15,8 +15,6 @@
           ./modules/pipewire.nix
           ./modules/bluetooth.nix
           ./modules/zsh.nix
-          ./modules/nvim.nix
-          ./modules/docker.nix
         ];
       };
       leafeon = nixpkgs.lib.nixosSystem {

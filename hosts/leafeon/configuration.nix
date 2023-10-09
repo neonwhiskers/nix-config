@@ -7,7 +7,7 @@
   sops.defaultSopsFile = ../../secrets/leafeon.yaml;
   system.stateVersion = "22.05";
 
-  boot.cleanTmpDir = true;
+  boot.tmp.cleanOnBoot = true;
   boot.loader.grub.device = "/dev/vda";
   zramSwap.enable = true;
   networking.hostName = "leafeon";

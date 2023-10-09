@@ -13,7 +13,7 @@
 
     networks."10-ether-bond" = {
       matchConfig = {
-        Name = "eth0";
+        Name = "ens3";
       };
       networkConfig = {
         IPv6AcceptRA = "yes";

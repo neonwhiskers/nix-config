@@ -24,11 +24,11 @@
         modules = [
           ./hosts/leafeon/configuration.nix
           ./modules/nextcloud.nix
-          ./modules/navidrome.nix
+          #./modules/navidrome.nix
           ./modules/sops.nix
           ./modules/nginx.nix
           ./modules/server_base.nix
-          ./modules/bookstack.nix
+          #./modules/bookstack.nix
           sops.nixosModules.sops
         ];
       };

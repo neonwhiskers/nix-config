@@ -15,8 +15,6 @@
           ./modules/pipewire.nix
           ./modules/bluetooth.nix
           ./modules/zsh.nix
-          ./modules/nvim.nix
-          ./modules/docker.nix
         ];
       };
       leafeon = nixpkgs.lib.nixosSystem {
@@ -28,7 +26,10 @@
           ./modules/sops.nix
           ./modules/nginx.nix
           ./modules/server_base.nix
+<<<<<<< HEAD
           #./modules/bookstack.nix
+=======
+>>>>>>> 5362b40f70302d8ca686865191c02ed99ee8f6bf
           sops.nixosModules.sops
         ];
       };

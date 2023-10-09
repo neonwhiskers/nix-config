@@ -15,7 +15,7 @@
   # Use the systemd-boot EFI boot loader.
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
-
+  boot.initrd.kernelModules = [ "amdgpu" ];
   networking.hostName = "umbreon"; # Define your hostname.
   # Pick only one of the below networking options.
   #  networking.networkmanager.enable = true;  # Easiest to use and most distros use this by default.
@@ -28,7 +28,7 @@
   # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
 
   # Select internationalisation properties.
-  i18n.consoleKeyMap = "de";
+  console.keyMap = "de";
   # console = {
   #   font = "Lat2-Terminus16";
   #   keyMap = "us";
@@ -38,7 +38,12 @@
   # Enable the X11 windowing system.
   # services.xserver.enable = true;
 
-
+  hardware.opengl = {
+    extraPackages32 = [ pkgs.driversi686Linux.amdvlk ];
+    extraPackages = [ pkgs.amdvlk ];
+    driSupport = true;
+    driSupport32Bit = true;
+  };
 
 
   # Configure keymap in X11
@@ -72,10 +77,12 @@
   # $ nix search wget
   environment.systemPackages = with pkgs; [
     pkgs.yubikey-personalization
-    vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
     wget
     git
   ];
+
+
+  virtualisation.docker.enable = true;
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
@@ -94,7 +101,7 @@
   # networking.firewall.allowedTCPPorts = [ ... ];
   # networking.firewall.allowedUDPPorts = [ ... ];
   # Or disable the firewall altogether.
-  # networking.firewall.enable = false;
+  networking.firewall.enable = false;
 
   # Copy the NixOS configuration file and link it from the resulting system
   # (/run/current-system/configuration.nix). This is useful in case you

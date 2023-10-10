@@ -1,6 +1,6 @@
 { config, pkgs, lib, ... }:
 let
-  domain = "nextcloud.digitalsocial.team";
+  domain = "cloud.eroshevich.me";
 in
 {
   sops.secrets.nextcloud_db_pass.owner = "nextcloud";
@@ -36,8 +36,10 @@ in
     };
   };
 
-  services.nginx.virtualHosts."nextcloud.digitalsocial.team".forceSSL = true;
-  services.nginx.virtualHosts."nextcloud.digitalsocial.team".enableACME = true;
+  services.nginx.virtualHosts."${domain}" = {
+    forceSSL = true;
+    enableACME = true;
+  };
 
   networking.firewall.allowedTCPPorts = [ 80 443 ];
 

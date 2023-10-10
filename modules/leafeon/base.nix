@@ -24,6 +24,12 @@
     git # versioning tool
     vim # vim editor
     htop # resource monitor
+    mdbook # documentation tool - lf10b
+    sops # secret handling - lf10b
+    prometheus # monitoring - lf10b
+    grafana # monitoring oberfläche - lf10b
+    restic # backup - lf10b
+
   ];
 
 
